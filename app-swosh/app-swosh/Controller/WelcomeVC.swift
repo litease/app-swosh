@@ -14,7 +14,8 @@ class WelcomeVC: UIViewController {
         super.viewDidLoad()
         
   }
-    @IBAction func unwindFromSkillVC(unwindSeque: UIStoryboardSegue) {
+    
+    @IBAction func unwindFromLeagueVC(unwindSeque: UIStoryboardSegue) {
         
     }
 

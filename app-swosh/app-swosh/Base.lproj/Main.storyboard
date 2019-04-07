@@ -56,6 +56,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
+                                    <action selector="oneNextTapped:" destination="7K2-Zl-das" eventType="touchUpInside" id="LZ5-Co-MoS"/>
                                     <segue destination="Tg9-yt-gLO" kind="show" id="Sfe-4T-uRv"/>
                                 </connections>
                             </button>
@@ -86,6 +87,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="7K2-Zl-das" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="50" y="20.5078125"/>
         </scene>
@@ -165,6 +167,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNextTapped:" destination="Tg9-yt-gLO" eventType="touchUpInside" id="wEP-TK-7iD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELF-u8-UHO">
                                 <rect key="frame" x="10" y="64" width="40" height="30"/>
@@ -174,7 +179,7 @@
                                 </constraints>
                                 <state key="normal" image="backButton"/>
                                 <connections>
-                                    <segue destination="Pkp-j0-T0Q" kind="unwind" unwindAction="unwindFromSkillVCWithUnwindSeque:" id="16J-OC-AHB"/>
+                                    <segue destination="Pkp-j0-T0Q" kind="unwind" unwindAction="unwindFromLeagueVCWithUnwindSeque:" id="DoV-O4-miE"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -198,16 +203,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="grb-Gx-otD"/>
                     </view>
+                    <connections>
+                        <segue destination="C0Q-Cq-Pc3" kind="show" identifier="skillVCSegue" id="eYN-Ci-FTZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q80-iC-aXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Pkp-j0-T0Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="786.95652173913049" y="19.419642857142858"/>
         </scene>
-        <!--SkillVC-->
+        <!--SkillVC Segue-->
         <scene sceneID="xqm-4J-rY8">
             <objects>
-                <viewController id="C0Q-Cq-Pc3" customClass="SkillVC" customModule="app_swosh" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="C0Q-Cq-Pc3" customClass="skillVCSegue" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xh7-GM-Qf8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,24 +226,46 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="2Vt-SQ-EYb">
-                                <rect key="frame" x="0.0" y="64" width="414" height="97.5"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="100"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="swooshLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OLA-Oj-HmC">
                                         <rect key="frame" x="147.5" y="0.0" width="119" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="119" id="JEf-73-kiI"/>
+                                            <constraint firstAttribute="height" constant="20" id="Nmx-eQ-zzH"/>
+                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am a:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJj-Qa-Ffr">
-                                        <rect key="frame" x="132" y="70" width="150" height="27.5"/>
+                                        <rect key="frame" x="0.0" y="70" width="414" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="Fgu-o1-7gh"/>
+                                            <constraint firstAttribute="height" constant="30" id="UyP-jX-2a4"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="aJj-Qa-Ffr" firstAttribute="top" secondItem="OLA-Oj-HmC" secondAttribute="bottom" constant="50" id="Cyy-qZ-8iY"/>
+                                    <constraint firstAttribute="trailing" secondItem="aJj-Qa-Ffr" secondAttribute="trailing" id="Mz0-8u-zRY"/>
+                                </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hl-jX-JVj">
+                                <rect key="frame" x="20" y="64" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QkQ-Cl-OWG"/>
+                                    <constraint firstAttribute="width" constant="40" id="u2x-4y-yuD"/>
+                                </constraints>
+                                <state key="normal" image="backButton"/>
+                                <connections>
+                                    <action selector="unwindFromLeageVC:" destination="j0z-d6-A7F" eventType="touchUpInside" id="hjm-yL-RBW"/>
+                                    <action selector="unwindFromSkillVC:" destination="C0Q-Cq-Pc3" eventType="touchUpInside" id="AeO-WL-XBo"/>
+                                    <action selector="unwindSegue:" destination="C0Q-Cq-Pc3" eventType="touchDragExit" id="NLd-LW-nM8"/>
+                                    <segue destination="j0z-d6-A7F" kind="unwind" unwindAction="unwindFromSkillVCWithUnwindSegue:" id="Oc6-nS-oyD"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XMF-bE-oJS">
-                                <rect key="frame" x="20" y="211.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="214" width="374" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDP-bm-ENN" customClass="BorderButton" customModule="app_swosh" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="172" height="50"/>
@@ -279,14 +309,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XMF-bE-oJS" firstAttribute="leading" secondItem="6e8-aM-c5c" secondAttribute="leading" constant="20" id="6Sp-Y7-idm"/>
-                            <constraint firstAttribute="bottom" secondItem="zad-nf-1H1" secondAttribute="bottom" id="8wd-Ea-SGl"/>
-                            <constraint firstItem="zad-nf-1H1" firstAttribute="trailing" secondItem="6e8-aM-c5c" secondAttribute="trailing" id="GQU-QQ-zZh"/>
+                            <constraint firstItem="zad-nf-1H1" firstAttribute="leading" secondItem="xh7-GM-Qf8" secondAttribute="leading" id="IRm-4U-6XU"/>
                             <constraint firstItem="2Vt-SQ-EYb" firstAttribute="top" secondItem="6e8-aM-c5c" secondAttribute="top" constant="20" id="IsK-vQ-f3e"/>
-                            <constraint firstItem="zad-nf-1H1" firstAttribute="leading" secondItem="6e8-aM-c5c" secondAttribute="leading" id="KAg-kB-gey"/>
-                            <constraint firstItem="zad-nf-1H1" firstAttribute="top" secondItem="xh7-GM-Qf8" secondAttribute="top" id="LQJ-9d-1i7"/>
                             <constraint firstItem="6e8-aM-c5c" firstAttribute="trailing" secondItem="2Vt-SQ-EYb" secondAttribute="trailing" id="NCb-NZ-Kl0"/>
+                            <constraint firstItem="zad-nf-1H1" firstAttribute="bottom" secondItem="xh7-GM-Qf8" secondAttribute="bottom" id="NRT-oZ-NMA"/>
+                            <constraint firstItem="zad-nf-1H1" firstAttribute="top" secondItem="xh7-GM-Qf8" secondAttribute="top" id="PKt-0S-nKA"/>
+                            <constraint firstItem="4hl-jX-JVj" firstAttribute="leading" secondItem="6e8-aM-c5c" secondAttribute="leading" constant="20" id="cVo-80-UMi"/>
+                            <constraint firstItem="zad-nf-1H1" firstAttribute="trailing" secondItem="xh7-GM-Qf8" secondAttribute="trailing" id="e19-2T-taB"/>
                             <constraint firstItem="XMF-bE-oJS" firstAttribute="top" secondItem="2Vt-SQ-EYb" secondAttribute="bottom" constant="50" id="eEx-6D-C6q"/>
                             <constraint firstItem="2Vt-SQ-EYb" firstAttribute="leading" secondItem="6e8-aM-c5c" secondAttribute="leading" id="gWN-iz-FqK"/>
+                            <constraint firstItem="4hl-jX-JVj" firstAttribute="top" secondItem="6e8-aM-c5c" secondAttribute="top" constant="20" id="ky1-JI-FSc"/>
                             <constraint firstItem="6e8-aM-c5c" firstAttribute="bottom" secondItem="YFf-q4-V5T" secondAttribute="bottom" constant="20" id="lRW-uH-zyV"/>
                             <constraint firstItem="6e8-aM-c5c" firstAttribute="trailing" secondItem="YFf-q4-V5T" secondAttribute="trailing" constant="20" id="tuG-xh-fgf"/>
                             <constraint firstItem="6e8-aM-c5c" firstAttribute="trailing" secondItem="XMF-bE-oJS" secondAttribute="trailing" constant="20" id="vH9-DN-36U"/>
@@ -296,8 +328,9 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXk-om-JUd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="j0z-d6-A7F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1457.9710144927537" y="19.419642857142858"/>
+            <point key="canvasLocation" x="1541" y="19"/>
         </scene>
     </scenes>
     <resources>
